@@ -44,3 +44,4 @@ write.csv(final_data, "combined_data.csv", row.names = FALSE)
 # Create average for each subject and each activity
 summary_data <- final_data %>% group_by(subject, activity) %>%
     summarize(across(ends_with("std") | ends_with("mean"), mean))
+write.csv(summary_data, "summary_data.csv",row.names = F)
