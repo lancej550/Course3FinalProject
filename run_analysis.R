@@ -39,9 +39,9 @@ x_test_reduced$activity <- y_test$V1
 final_data <- rbind(x_test_reduced,x_train_reduced)
 
 # Save the data set
-write.csv(final_data, "combined_data.csv", row.names = FALSE)
+write.table(final_data, "combined_data.txt", row.names = FALSE)
 
 # Create average for each subject and each activity
 summary_data <- final_data %>% group_by(subject, activity) %>%
     summarize(across(ends_with("std") | ends_with("mean"), mean))
-write.csv(summary_data, "summary_data.csv",row.names = F)
+write.table(summary_data, "summary_data.txt",row.names = F)
